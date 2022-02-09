@@ -1,31 +1,29 @@
 import { useState } from "react";
 
-function InputWork() {
-  let [display, setDisplay] = useState("");
-  const [status, setStatus] = useState("Enter value");
+function InputWork(props) {
+  const [display, setDisplay] = useState("");
 
   const handleAddBtn = (event) => {
     event.preventDefault();
-    setStatus(display);
-    // console.log(display);
     setDisplay("");
+    props.set(display);
+
   };
 
-  const handleToDo = (event) => {
-    // display = event.target.value;
+  const handleInputField = (event) => {
     setDisplay(event.target.value);
   };
 
   return (
     <div>
       <form onSubmit={handleAddBtn}>
-        <label htmlFor="work">{status}</label>
+        <label htmlFor="work">Enter list</label>
         <input
           type="text"
           id="work"
           name="do"
           value={display}
-          onChange={handleToDo}
+          onChange={handleInputField}
           required
         ></input>
         <button type="submit" value="">
