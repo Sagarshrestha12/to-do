@@ -4,6 +4,7 @@ import ToDoList from "./components/ToDoList";
 import InputWork from "./components/InputWork";
 import { useState } from "react";
 import ExpressList from "./components/ExpressList";
+import displayMessage from "./utils";
 
 const workList = [];
 let textAtInput = "";
@@ -13,6 +14,7 @@ let editId;
 function App() {
   const [totalList, appendToList] = useState(workList);
   const [edit, chgEdit] = useState(false);
+  const [message, changeMessage] = useState("Clear");
 
   function addList(data) {
     appendToList((prev) => {
@@ -43,10 +45,11 @@ function App() {
 
   function handleClearBtn() {
     appendToList([]);
+    changeMessage("Clearing all Task");
+    displayMessage(message);
   }
 
   function editText(data) {
-    // totalList.text = data;
     if (edit) {
       appendToList((prev) => {
         prev.forEach((ele) => {
@@ -60,6 +63,10 @@ function App() {
     chgEdit(false);
   }
 
+  function setMessage(msg) {
+    changeMessage(msg);
+    displayMessage(msg);
+  }
   return (
     <div className="todo">
       <Header name="TO-DO" />
@@ -68,11 +75,15 @@ function App() {
         chg={getFunction}
         edit={edit}
         editText={editText}
+        message={message}
+        setMessage={setMessage}
       />
       <ExpressList
         list={totalList}
         returnId={{ delId: getIdToDel, editId: getIdToEdit }}
+        setMessage={setMessage}
       />
+      <div id="popup">{message}</div>
       <div className="clear-button">
         <button onClick={handleClearBtn}>Clear</button>
       </div>

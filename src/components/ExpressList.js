@@ -2,7 +2,7 @@ import ToDoList from "./ToDoList";
 import "./ExpressList.css";
 import content from "../content.png";
 
-function ExpressList({ list, returnId }) {
+function ExpressList({ list, returnId, setMessage }) {
   if (list.length === 0) {
     return (
       <div className="list-field">
@@ -17,7 +17,12 @@ function ExpressList({ list, returnId }) {
       <div className="list-field">
         <p>Your Tasks</p>
         {list.map((list) => (
-          <ToDoList key={list.id} list={list} returnId={returnId} />
+          <ToDoList
+            key={list.id}
+            list={list}
+            returnId={returnId}
+            setMessage={setMessage}
+          />
         ))}
       </div>
     );

@@ -12,6 +12,7 @@ function InputWork(props) {
     setDisplay("");
     if (!props.edit) {
       props.set({ text: display, id: todoCounter });
+      props.setMessage("Added the task");
     }
     todoCounter++;
     props.chg(editText);
