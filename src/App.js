@@ -61,7 +61,7 @@ function App() {
   }
 
   return (
-    <div>
+    <div className="todo">
       <Header name="TO-DO" />
       <InputWork
         set={addList}
@@ -73,7 +73,9 @@ function App() {
         list={totalList}
         returnId={{ delId: getIdToDel, editId: getIdToEdit }}
       />
-      <button onClick={handleClearBtn}>Clear</button>
+      <div className="clear-button">
+        <button onClick={handleClearBtn}>Clear</button>
+      </div>
     </div>
   );
 }

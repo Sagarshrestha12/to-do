@@ -36,3 +36,21 @@
     transform: rotate(360deg);
   }
 }
+
+.clear-button {
+  width: 50%;
+  margin: 0 auto;
+}
+.clear-button > button {
+  padding: 0.5rem 2rem;
+  float: right;
+  background-color: red;
+  border-radius: 5px;
+  border: red;
+  font-size: 1.2rem;
+}
+
+.clear-button > button:hover {
+  color: white;
+  font-size: 1.2rem;
+}

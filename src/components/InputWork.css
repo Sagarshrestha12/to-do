@@ -4,15 +4,24 @@
 }
 
 .input-text {
-  width: 80%;
+  width: 85.7%;
   padding: 0.7rem;
   font-size: 1rem;
   border: 0px 2px;
 }
+
 .input-button {
   width: 10%;
   padding: 0.7rem;
   border-color: rgb(101, 206, 53);
   border-radius: 5px;
   background-color: rgb(101, 206, 53);
+}
+input {
+  border-radius: 5px;
+}
+input:focus {
+  outline: none;
+  border-color: #719ece;
+  box-shadow: 0 0 10px #719ece;
 }

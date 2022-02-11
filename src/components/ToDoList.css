@@ -1,5 +1,32 @@
 .todo_list {
-  padding: 0.3rem;
+  width: 98%;
+  padding: 0.7rem 0.5rem;
   border: 2px solid black;
-  border-radius: 2px;
+  border-radius: 5px;
+  margin-bottom: 0.3rem;
+}
+.icon {
+  float: right;
+  margin-left: 0.2rem;
+  background-color: inherit;
+  border: none;
+}
+
+.clearfix {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.todo_list > button > img:hover {
+  transform: scale(1.2, 1.2);
+}
+
+.todo_list:nth-child(odd) {
+  background-color: rgb(241, 92, 162);
+  border: rgb(241, 92, 162);
+}
+.todo_list:nth-child(even) {
+  background-color: rgb(224, 233, 60);
+  border: rgb(224, 233, 60);
 }
