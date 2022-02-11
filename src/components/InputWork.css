@@ -1,0 +1,27 @@
+.input-field {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.input-text {
+  width: 85.7%;
+  padding: 0.7rem;
+  font-size: 1rem;
+  border: 0rem 0.3rem;
+}
+
+.input-button {
+  width: 10%;
+  padding: 0.7rem;
+  border-color: rgb(101, 206, 53);
+  border-radius: 0.3rem;
+  background-color: rgb(101, 206, 53);
+}
+input {
+  border-radius: 0.3rem;
+}
+input:focus {
+  outline: none;
+  border-color: #719ece;
+  box-shadow: 0 0 0.6rem #719ece;
+}

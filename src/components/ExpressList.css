@@ -1,0 +1,17 @@
+.list-field {
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+}
+.list-field > img {
+  width: 100px;
+  height: 100px;
+  display: block;
+  margin: 0 auto;
+}
+p {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
