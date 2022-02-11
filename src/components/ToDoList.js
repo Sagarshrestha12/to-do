@@ -1,8 +1,9 @@
 import "./ToDoList.css";
 import edit from "../edit.svg";
-
 import del from "../del.svg";
+
 function ToDoList({ list, returnId, setMessage }) {
+
   function editButtonHandler() {
     returnId.editId(list.id);
     setMessage("Editing Message");

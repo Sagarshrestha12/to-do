@@ -1,6 +1,5 @@
 import "./App.css";
 import Header from "./components/Header";
-import ToDoList from "./components/ToDoList";
 import InputWork from "./components/InputWork";
 import { useState } from "react";
 import ExpressList from "./components/ExpressList";
@@ -67,9 +66,10 @@ function App() {
     changeMessage(msg);
     displayMessage(msg);
   }
+
   return (
     <div className="todo">
-      <Header name="TO-DO" />
+      <Header />
       <InputWork
         set={addList}
         chg={getFunction}

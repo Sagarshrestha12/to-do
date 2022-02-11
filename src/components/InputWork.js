@@ -1,5 +1,5 @@
 import { useState } from "react";
-import logo from "./plus.svg";
+import logo from "../plus.svg";
 import "./InputWork.css";
 
 let todoCounter = 0;
