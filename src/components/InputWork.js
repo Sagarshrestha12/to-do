@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import logo from "./plus.svg";
+import "./InputWork.css";
 
 let todoCounter = 0;
 function InputWork(props) {
@@ -8,8 +8,11 @@ function InputWork(props) {
 
   const handleAddBtn = (event) => {
     event.preventDefault();
+    props.editText(display);
     setDisplay("");
-    props.set({ text: display, id: todoCounter });
+    if (!props.edit) {
+      props.set({ text: display, id: todoCounter });
+    }
     todoCounter++;
     props.chg(editText);
   };
@@ -24,7 +27,7 @@ function InputWork(props) {
 
   return (
     <div>
-      <form onSubmit={handleAddBtn}>
+      <form onSubmit={handleAddBtn} className="input-field">
         <label htmlFor="work"></label>
         <input
           type="text"
@@ -32,10 +35,11 @@ function InputWork(props) {
           name="do"
           value={display}
           onChange={handleInputField}
-          placeholder="Enter"
+          placeholder="Enter Task"
+          className="input-text"
           required
         ></input>
-        <button type="submit" value="">
+        <button className="input-button" type="submit" value="">
           <img src={logo} alt="Logo" style={{ height: "1rem" }} />
         </button>
       </form>

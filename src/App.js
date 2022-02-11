@@ -4,14 +4,15 @@ import ToDoList from "./components/ToDoList";
 import InputWork from "./components/InputWork";
 import { useState } from "react";
 import ExpressList from "./components/ExpressList";
-import { faL } from "@fortawesome/free-solid-svg-icons";
+
 const workList = [];
 let textAtInput = "";
 let chg;
+let editId;
+
 function App() {
   const [totalList, appendToList] = useState(workList);
-  let id;
-  let edit = false;
+  const [edit, chgEdit] = useState(false);
 
   function addList(data) {
     appendToList((prev) => {
@@ -30,42 +31,49 @@ function App() {
   }
 
   function getIdToEdit(data) {
-    let showData = totalList.filter((ele) => {
+    chgEdit(true);
+    totalList.forEach((ele) => {
       if (ele.id === data) {
         textAtInput = ele.text;
         chg(textAtInput);
-      } else {
-        edit = true;
-        return true;
+        editId = ele.id;
       }
-    });
-    appendToList((prev) => {
-      return showData;
     });
   }
 
-  if (edit) {
-    edit = false;
-    return (
-      <div>
-        <Header name="TO-DO" />
-        <InputWork set={addList} chg={getFunction} />
-        <ExpressList
-          list={totalList}
-          returnId={{ delId: getIdToDel, editId: getIdToEdit }}
-        />
-      </div>
-    );
+  function handleClearBtn() {
+    appendToList([]);
+  }
+
+  function editText(data) {
+    // totalList.text = data;
+    if (edit) {
+      appendToList((prev) => {
+        prev.forEach((ele) => {
+          if (ele.id === editId) {
+            ele.text = data;
+          }
+        });
+        return prev;
+      });
+    }
+    chgEdit(false);
   }
 
   return (
     <div>
       <Header name="TO-DO" />
-      <InputWork set={addList} chg={getFunction} />
+      <InputWork
+        set={addList}
+        chg={getFunction}
+        edit={edit}
+        editText={editText}
+      />
       <ExpressList
         list={totalList}
         returnId={{ delId: getIdToDel, editId: getIdToEdit }}
       />
+      <button onClick={handleClearBtn}>Clear</button>
     </div>
   );
 }
